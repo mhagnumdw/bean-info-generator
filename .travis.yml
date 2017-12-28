@@ -1,0 +1,14 @@
+env:
+    global:
+        - secure: "hVDKH1EqjbVZbPPodbqqmhfkL+qaDxwMxjkplNq8vN4mWRfYBOhoZsnBBxlFQtDYmTDs8YNTx2K/dulm6O9oPklkSkUqnOhovkt/r2LqzX03qZIV/UlwtDQTpz7RNeeDUOMCcUFjTo2z8D2ed6v6t/UUS2zKXqqGkksoDmkh4ueZNbW7tpGEzdvQMAdXiMvxVb7y8+c9Nfi6FU2bC8+Imw89Z8+ibKppKEQg541gQXcuC+DzkSbyRvgPGoJ66CJlHVV90LtxQYTp8eIRaPXxZ9Hs78WRhADvSEJ/HcyLzXezh2sG7yqE6GTXwkrelDBasavKwZ4qnJC0ECpt9++eeR3YqM2tJUcK4AyxVXP/TnmVGU3gkUIaOxTKt8n7sZeA5vKZZDZmDfE5zmvArz8vKV+d8Cu94TZiNxKsVOTKQSjjjyor/LzinErmx5rU1+fwrOO79LA85gs90/zCCQnZ2dCJB1oxdRcxDcRfKpByXA6QE6vzb72ehTnyu00sLXunbTHi/tS1En6bUVrthmd9oN9eiQCdLFyHS/vC46Be3iIDopPOr7nyXBKcorxknZhvKx6VZaOcpeqlNpyAV7D5OPJdeHQ8oy9NuXchxE4ZTBPuTWOlyofgsmoGy3IGmCoxv/erOiKlVj7JVUN/bBQNQ5FC2hn+e+IAO0gZnsmyvO8="
+        - secure: "qsPVf4sYik/mLDDsuyX4QCgWp1LnSUy+ZROJzkdXPUooa4WNoPxneIdPVHULEt0GHletAGn8W6pGQaVsbIWrynHXB1fcAW/zpiSFVY2MsdadV7OPuqHCQ5mKsCugmvRUi82OwucSTCaS02T43OgyJkQlqbrY6Ck5QQ3UxCT1Uz4Ge3GWdOl9DuNPWTQIeAmU8TQg5SQXllRQXxdkCLPuLHtNOgjtu6dxXPQNRoRXIFWRghN55dAnoce2yS1DtzHZqsoaL03XFx6X3GyvC44CBboLIw0rtHGblxcn2/qBAKNK46oTFmHMxAg7g5CF0NQaELhpGA5VQuj6Tp+GW6UwAFIpfbfNZ61MqHwASxmM1f/nk0DpgMCuMvYau0L35QMnBu5sVFMm4+STS0kFGss7bu0jANV/mUujAIJJZW6xcmvcZEChNMvNhyEftiI7w8uBJRBFGbVS5QDGkBiw9Dd52gnTVexREQuP9AhRr5MOPT1pyATYUybtBvaEJKJlGdQzIhqDpVOWj6RlgoWTVAnJTpS0JtLASJ4FC2P2I4IwsRM3tMrdKUFhv1f+bYX/bRG/mUTP26lz2T2inFjFM06fkMpRnOSBb+badZEwuJCwoKLyLOgH6DpgkT3pF8lZEOLgECX/4eTCxpjN/E6/hs2NPIqD1hHmadiLx0iKUetpyBM="
+
+language: java
+
+jdk:
+    - oraclejdk8
+
+after_success:
+    - mvn clean cobertura:cobertura coveralls:report
+    - cp travis-maven-settings.xml ~/.m2/
+    - "[[ $TRAVIS_BRANCH = 'master' ]] && [[ $TRAVIS_PULL_REQUEST == 'false' ]] && mvn --settings ~/.m2/travis-maven-settings.xml deploy"

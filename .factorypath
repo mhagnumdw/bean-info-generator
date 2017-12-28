@@ -1,0 +1,5 @@
+<factorypath>
+    <factorypathentry kind="PLUGIN" id="org.eclipse.jst.ws.annotations.core" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/home/f0692311/.m2/repository/com/squareup/javapoet/1.9.0/javapoet-1.9.0.jar" enabled="false" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/home/f0692311/ambiente-oxygen/workspace/bean-info-generator/target/bean-info-generator-0.0.1-SNAPSHOT.jar" enabled="false" runInBatchMode="false"/>
+</factorypath>
