@@ -8,6 +8,9 @@ import java.lang.annotation.Target;
 
 @Target(TYPE)
 @Retention(RUNTIME)
+
+// TODO: JavaDoc!
+
 public @interface GenerateBeanInfo {
 
 }
