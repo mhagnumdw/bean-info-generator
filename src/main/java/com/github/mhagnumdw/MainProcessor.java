@@ -43,6 +43,7 @@ import com.squareup.javapoet.TypeSpec.Builder;
 public class MainProcessor extends AbstractProcessor {
 
 	private Messager messager;
+	private Elements elementUtils;
 
 	// keep track of all classes for which model have been generated
 	private final Collection<String> generatedModelClasses = new HashSet<String>();
@@ -50,8 +51,11 @@ public class MainProcessor extends AbstractProcessor {
 	@Override
 	public synchronized void init(ProcessingEnvironment processingEnv) {
 		messager =  processingEnv.getMessager();
+		elementUtils = processingEnv.getElementUtils();
 		super.init(processingEnv);
 	}
+
+	// TODO: testar classe dentro de classe
 
 	@Override
 	public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
@@ -65,8 +69,12 @@ public class MainProcessor extends AbstractProcessor {
 			for (Element classElement : elements) {
 				final String fcqn = ((TypeElement) classElement).getQualifiedName().toString();
 				final String className = classElement.getSimpleName().toString();
-				final String packageName = classElement.getEnclosingElement().toString();
 
+				//final String packageName = classElement.getEnclosingElement().toString();
+				final String packageName = elementUtils.getPackageOf(classElement).getQualifiedName().toString();
+				//final String packageName = fcqn.replaceAll("\\.?" + className + "$", "");
+
+				logNote("Detalhes: {} / {} / {}" , fcqn, packageName, className);
 				// TODO: se já tiver sido gerado não gerar mais!
 
 				logNote("Classe: {}.{}", packageName, className);
