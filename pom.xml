@@ -24,8 +24,33 @@
                     <encoding>UTF-8</encoding>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
+                    <!-- Disable annotation processing for ourselves. -->
+                    <!-- 
+                    <compilerArgument>-proc:none</compilerArgument>
+                     -->
                 </configuration>
+                <!-- 
                 <inherited>true</inherited>
+                 -->
+                <executions>
+                    <execution>
+                        <id>default-compile</id>
+                        <configuration>
+                            <compilerArgument>-proc:none</compilerArgument>
+                            <includes>
+                                <include>com/github/mhagnumdw/MainProcessor.java</include>
+                                <!--include dependencies required for LogMeCustomAnnotationProcessor -->
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>compile-project</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
