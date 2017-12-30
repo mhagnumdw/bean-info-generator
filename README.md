@@ -2,6 +2,9 @@
 
 Generate static information about Java Beans
 
+## Observações
+- Atualmente gera informações de matados apenas dos fields.
+
 ## Executar (testar/compilar) em tempo de desenvolvimento
 - Executar, via linha de comando: mvnDebug clean install;
 - O maven vai exibir: Listening for transport dt_socket at address: 8000;

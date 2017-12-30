@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="Jarvis PMD Rules"
+    xmlns="http://pmd.sf.net/ruleset/1.0.0"
+    xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
+    xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd" >
+
+    <description>PMD Rules</description>
+
+    <exclude-pattern>.*/metamodel/.*</exclude-pattern>
+    <exclude-pattern>.*/generated-sources/.*</exclude-pattern>
+
+    <!-- Rules that apply if no rule is specified -->
+    <rule ref="rulesets/java/basic.xml">
+         <exclude name="JumbledIncrementer"/>
+         <exclude name="ForLoopShouldBeWhileLoop"/>
+         <exclude name="DoubleCheckedLocking"/>
+    </rule>
+    <rule ref="rulesets/java/empty.xml" />
+    <rule ref="rulesets/java/imports.xml" />
+    <rule ref="rulesets/java/unnecessary.xml" />
+    <rule ref="rulesets/java/unusedcode.xml" />
+    <!-- Other rules -->
+    <rule ref="rulesets/java/braces.xml" />
+    <rule ref="rulesets/java/clone.xml" />
+    <rule ref="rulesets/java/finalizers.xml" />
+    <rule ref="rulesets/java/design.xml" >
+        <exclude name="EmptyMethodInAbstractClassShouldBeAbstract"/>
+    </rule>
+    <rule ref="rulesets/java/controversial.xml" >
+        <exclude name="AvoidPrefixingMethodParameters"/>
+        <exclude name="UseConcurrentHashMap"/>
+        <exclude name="AtLeastOneConstructor"/>
+        <exclude name="OnlyOneReturn"/>
+    </rule>
+    <rule ref="rulesets/java/comments.xml" >
+        <exclude name="CommentRequired"/> <!-- Excluded because it requires comment in private fields -->
+        <exclude name="CommentSize"/> <!-- Configured in checkstyle -->
+    </rule>
+    <rule ref="rulesets/java/codesize.xml" />
+    <rule ref="rulesets/java/logging-java.xml" />
+    <rule ref="rulesets/java/logging-jakarta-commons.xml" />
+    <rule ref="rulesets/java/junit.xml" >
+        <exclude name="JUnitAssertionsShouldIncludeMessage" />
+        <exclude name="JUnitTestContainsTooManyAsserts" />
+    </rule>
+    <rule ref="rulesets/java/javabeans.xml" />
+    <rule ref="rulesets/java/typeresolution.xml" />
+    <rule ref="rulesets/java/sunsecure.xml" />
+    <rule ref="rulesets/java/strings.xml" />
+    <rule ref="rulesets/java/strictexception.xml" >
+        <exclude name="AvoidCatchingGenericException"/>
+    </rule>
+    <rule ref="rulesets/java/optimizations.xml" >
+        <!-- 
+        <exclude name="MethodArgumentCouldBeFinal"/>
+         -->
+    </rule>
+    <rule ref="rulesets/java/naming.xml" >
+        <exclude name="ShortVariable"/> <!-- Configured in checkstyle -->
+        <exclude name="LongVariable"/> <!-- Configured in checkstyle -->
+        <!-- VariableNamingConventions: This rule is temporarily ignored because it reports undue cases, for example: that the log attribute must be uppercase. -->
+        <!-- Ref#1: https://sourceforge.net/p/pmd/bugs/1062/ -->
+        <!-- Ref#2: https://sourceforge.net/p/pmd/bugs/1062/ -->
+        <!-- Ref#3: https://google.github.io/styleguide/javaguide.html#s5.2.4-constant-names -->
+        <exclude name="VariableNamingConventions"/>
+    </rule>
+    <rule ref="rulesets/java/javabeans.xml/BeanMembersShouldSerialize">
+        <properties>
+            <property name="violationSuppressXPath" value="./ancestor::ClassOrInterfaceBodyDeclaration/Annotation/MarkerAnnotation//Name[@Image='Inject']" />
+            <!-- Or like this:
+            <property name="violationSuppressXPath" value="//ClassOrInterfaceBodyDeclaration/Annotation/MarkerAnnotation//Name[@Image='Inject']" />
+             -->
+        </properties>
+    </rule>
+    <!--
+    <rule ref="rulesets/java/design.xml/UseUtilityClass">
+        <properties>
+            <property name="violationSuppressRegex" value="(Util|Utils)$" />
+        </properties>
+    </rule>
+     -->
+    <!-- We do not want to use -->
+    <!--
+    <rule ref="rulesets/java/android.xml" />
+    <rule ref="rulesets/java/migrating.xml" />
+    <rule ref="rulesets/java/migrating_to_14.xml" />
+    <rule ref="rulesets/java/migrating_to_13.xml" />
+    <rule ref="rulesets/java/j2ee.xml" />
+
+    <rule ref="rulesets/java/migrating_to_junit4.xml" />
+    <rule ref="rulesets/java/migrating_to_15.xml" />
+     -->
+    <!-- Rules that give warn on execution by maven -->
+    <!--
+    <rule ref="rulesets/java/coupling.xml" />
+     -->
+    <!-- Rules that give execution error by maven -->
+    <!--
+    <rule ref="rulesets/java/rulesets.properties" />
+     -->
+
+</ruleset>

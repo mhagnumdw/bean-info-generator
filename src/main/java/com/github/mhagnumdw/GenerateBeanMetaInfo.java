@@ -6,11 +6,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+/**
+ * Marks the classes to generate the metadata information.
+ */
 @Target(TYPE)
 @Retention(RUNTIME)
-
-// TODO: JavaDoc!
-
-public @interface GenerateBeanInfo {
+public @interface GenerateBeanMetaInfo {
 
 }

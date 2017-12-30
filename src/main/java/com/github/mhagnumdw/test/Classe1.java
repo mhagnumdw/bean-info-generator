@@ -3,36 +3,36 @@ package com.github.mhagnumdw.test;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.github.mhagnumdw.GenerateBeanInfo;
+import com.github.mhagnumdw.GenerateBeanMetaInfo;
 
-@GenerateBeanInfo
+@GenerateBeanMetaInfo
 public class Classe1 implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private int contador;
-	private Date idade;
-	private String nome;
-	private Classe2 classeDois;
+    private int contador;
+    private Date idade;
+    private String nome;
+    private Classe2 classeDois;
 
-	public void a() {
+    public void aaa() {
 
-	}
+    }
 
-	public final void b() {
+    public final void bbb() {
 
-	}
+    }
 
-	protected void c() {
+    protected void ccc() {
 
-	}
+    }
 
-	private void d() {
+    private void ddd() {
 
-	}
+    }
 
-	void e() {
+    void eee() {
 
-	}
+    }
 
 }
