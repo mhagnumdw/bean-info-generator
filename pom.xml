@@ -56,7 +56,7 @@
                         <configuration>
                             <compilerArgument>-proc:none</compilerArgument>
                             <includes>
-                                <include>com/github/mhagnumdw/BeanMetaInfoProcessor.java</include>
+                                <include>com/github/mhagnumdw/beaninfogenerator/BeanMetaInfoProcessor.java</include>
                                 <!--include dependencies required for LogMeCustomAnnotationProcessor -->
                             </includes>
                         </configuration>

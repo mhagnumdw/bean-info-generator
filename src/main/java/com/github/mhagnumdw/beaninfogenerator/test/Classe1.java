@@ -1,9 +1,9 @@
-package com.github.mhagnumdw.test;
+package com.github.mhagnumdw.beaninfogenerator.test;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.github.mhagnumdw.GenerateBeanMetaInfo;
+import com.github.mhagnumdw.beaninfogenerator.GenerateBeanMetaInfo;
 
 @GenerateBeanMetaInfo
 public class Classe1 implements Serializable {

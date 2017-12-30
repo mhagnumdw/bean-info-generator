@@ -1,4 +1,4 @@
-package com.github.mhagnumdw;
+package com.github.mhagnumdw.beaninfogenerator;
 
 import java.io.Writer;
 import java.text.SimpleDateFormat;
@@ -33,7 +33,7 @@ import com.squareup.javapoet.TypeSpec.Builder;
 
 //@formatter:off
 @SupportedAnnotationTypes({
-    "com.github.mhagnumdw.GenerateBeanMetaInfo"
+    "com.github.mhagnumdw.beaninfogenerator.GenerateBeanMetaInfo"
 })
 @SupportedOptions({
     Context.DEBUG,

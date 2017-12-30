@@ -1,4 +1,4 @@
-package com.github.mhagnumdw.test;
+package com.github.mhagnumdw.beaninfogenerator.test;
 
 public class Classe2 {
 

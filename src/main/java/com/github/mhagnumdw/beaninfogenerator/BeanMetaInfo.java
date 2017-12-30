@@ -1,4 +1,4 @@
-package com.github.mhagnumdw;
+package com.github.mhagnumdw.beaninfogenerator;
 
 import java.io.Serializable;
 

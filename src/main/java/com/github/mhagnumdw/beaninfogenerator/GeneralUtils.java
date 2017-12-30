@@ -1,4 +1,4 @@
-package com.github.mhagnumdw;
+package com.github.mhagnumdw.beaninfogenerator;
 
 /**
  * Utility for general use.
