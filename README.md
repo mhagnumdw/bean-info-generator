@@ -1,5 +1,9 @@
 # Java - Bean Info Generator
 
+// TODO: Exibir aqui: build status
+// TODO: Exibir aqui: code coverage
+// TODO: Exibir aqui: versão no maven central
+
 Generate static information about Java Beans
 
 ### What is it?
@@ -9,7 +13,7 @@ It is an annotation processor for generating code containing static information 
 Create typesafe code to be constructed in a strongly-typed manner when you need to reference fields by literal value.
 
 ## Usage
-Annotate a class with @GenerateBeanMetaInfo
+Annotate a class with `@GenerateBeanMetaInfo`
 
 ```java
 package test;
@@ -23,7 +27,7 @@ public class People {
 }
 ```
 
-When the build run, People_INFO.java and People_INFO.class are generated:
+When the build run, `People_INFO.java` and `People_INFO.class` are generated:
 ```java
 package test;
 import com.github.mhagnumdw.beaninfogenerator.BeanMetaInfo;
@@ -52,7 +56,14 @@ Now it can be written like this:
 Field field = People.class.getDeclaredField(People_INFO.age.getName());
 ```
 
-Someday, when the attribute "age" is renamed it will break in the compilation or your IDE will warn of the problem, something that would not happen before.
+Someday, when the attribute `age` is renamed it will break in the compilation or your IDE will warn of the problem, something that would not happen before.
+
+## // TODO: Configurar no build do Eclipse
+- // TODO: escrever
+
+## // TODO: Mostrar como no maven alterar alguns parâmetros
+- // Esse processaodr de anotação suporta algumas opções, mostrar quais
+- // Por padrão o maven já executa os processadores de anotação
 
 ## Limitations
 - It currently generates information only from for fields;
