@@ -1,6 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.mhagnumdw</groupId>
     <artifactId>bean-info-generator</artifactId>
@@ -77,9 +83,10 @@
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
                     <!-- Disable annotation processing for ourselves. -->
-                    <!-- <compilerArgument>-proc:none</compilerArgument> -->
+                    <compilerArgument>-proc:none</compilerArgument>
                 </configuration>
                 <inherited>true</inherited>
+                <!--
                 <executions>
                     <execution>
                         <id>default-compile</id>
@@ -87,7 +94,6 @@
                             <compilerArgument>-proc:none</compilerArgument>
                             <includes>
                                 <include>com/github/mhagnumdw/beaninfogenerator/BeanMetaInfoProcessor.java</include>
-                                <!--include dependencies required for LogMeCustomAnnotationProcessor -->
                             </includes>
                         </configuration>
                     </execution>
@@ -99,6 +105,7 @@
                         </goals>
                     </execution>
                 </executions>
+                 -->
             </plugin>
 
             <plugin>
