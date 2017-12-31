@@ -1,8 +1,8 @@
 # Java - Bean Info Generator
 
-// TODO: Exibir aqui: build status
-// TODO: Exibir aqui: code coverage
-// TODO: Exibir aqui: vers„o no maven central
+[![Travis CI Build Status](https://travis-ci.org/mhagnumdw/bean-info-generator.png)](https://travis-ci.org/mhagnumdw/bean-info-generator)
+[![Coverage Status](https://coveralls.io/repos/github/mhagnumdw/bean-info-generator/badge.svg?branch=master)](https://coveralls.io/github/mhagnumdw/bean-info-generator?branch=master)
+[![Maven Central](http://img.shields.io/maven-central/v/com.github.mhagnumdw/bean-info-generator.svg)](http://search.maven.org/#search|ga|1|com.github.mhagnumdw)
 
 Generate static information about Java Beans
 
@@ -61,9 +61,9 @@ Someday, when the attribute `age` is renamed it will break in the compilation or
 ## // TODO: Configurar no build do Eclipse
 - // TODO: escrever
 
-## // TODO: Mostrar como no maven alterar alguns par‚metros
-- // Esse processaodr de anotaÁ„o suporta algumas opÁıes, mostrar quais
-- // Por padr„o o maven j· executa os processadores de anotaÁ„o
+## // TODO: Mostrar como no maven alterar alguns par√¢metros
+- // Esse processaodr de anota√ß√£o suporta algumas op√ß√µes, mostrar quais
+- // Por padr√£o o maven j√° executa os processadores de anota√ß√£o
 
 ## Limitations
 - It currently generates information only from for fields;
