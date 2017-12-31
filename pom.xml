@@ -7,9 +7,34 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>Bean Info Generator</name>
     <description>Java - Generate static information about Java Beans</description>
+    <url>https://github.com/mhagnumdw/bean-info-generator</url>
+
+    <scm>
+        <connection>scm:git:https://github.com/mhagnumdw/bean-info-generator.git</connection>
+        <developerConnection>scm:git:https://github.com/mhagnumdw/bean-info-generator.git</developerConnection>
+        <url>git@github.com/mhagnumdw/bean-info-generator.git</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
         <maven.compiler.plugin>3.6.0</maven.compiler.plugin>
+        <maven.source.plugin>3.0.1</maven.source.plugin>
+        <maven.javadoc.plugin>2.10.4</maven.javadoc.plugin>
+        <cobertura.version>2.7</cobertura.version>
+        <coveralls.version>3.1.0</coveralls.version>
     </properties>
 
     <dependencies>
@@ -45,19 +70,16 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <optimize>true</optimize>
                     <encoding>UTF-8</encoding>
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
                     <!-- Disable annotation processing for ourselves. -->
-                    <!--
-                    <compilerArgument>-proc:none</compilerArgument>
-                     -->
+                    <!-- <compilerArgument>-proc:none</compilerArgument> -->
                 </configuration>
-                <!--
                 <inherited>true</inherited>
-                 -->
                 <executions>
                     <execution>
                         <id>default-compile</id>
@@ -74,6 +96,37 @@
                         <phase>compile</phase>
                         <goals>
                             <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven.javadoc.plugin}</version>
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
