@@ -1,31 +1,35 @@
 package com.github.mhagnumdw.beaninfogenerator;
 
+import javax.annotation.processing.Filer;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.PackageElement;
 import javax.tools.Diagnostic;
 
-public final class Context {
+final class Context {
 
     private ProcessingEnvironment pe;
 
-    public static final String DEBUG = "debug";
-    public static final String SUFFIX = "suffix";
+    // Supported Options
+    static final String DEBUG = "debug";
+    static final String SUFFIX = "suffix";
+    static final String ADD_GENERATION_DATE = "addGenerationDate";
 
     private boolean debug = false;
     private String suffix = "_INFO";
+    private boolean addGenerationDate = false;
 
     private Context() {
-
+        // nothing
     }
 
     /**
-     * Constructor. Loads some options like debug, suffix etc.
+     * Constructor. Loads some options like debug, suffix, add generated date etc.
      * 
      * @param pe
      *            instance of {@link ProcessingEnvironment}
      */
-    public Context(ProcessingEnvironment pe) {
+    Context(ProcessingEnvironment pe) {
         this.pe = pe;
 
         String tmp = pe.getOptions().get(DEBUG);
@@ -37,34 +41,51 @@ public final class Context {
         if (GeneralUtils.isNotBlank(tmp)) {
             setSuffix(tmp);
         }
+
+        tmp = pe.getOptions().get(ADD_GENERATION_DATE);
+        if (GeneralUtils.isNotBlank(tmp)) {
+            setAddGenerationDate(Boolean.parseBoolean(tmp));
+        }
     }
 
-    public void enableDebug(boolean debug) {
+    void enableDebug(boolean debug) {
         this.debug = debug;
     }
 
-    public boolean isDebug() {
+    boolean isDebug() {
         return debug;
     }
 
-    public void setSuffix(String suffix) {
+    void setSuffix(String suffix) {
         this.suffix = suffix;
     }
 
-    public String getSuffix() {
+    String getSuffix() {
         return suffix;
     }
 
-    public String supportedOptionsSummary() {
-        return GeneralUtils.format("debug: {}, suffix: {}", debug, suffix);
+    private void setAddGenerationDate(boolean addGenerationDate) {
+        this.addGenerationDate = addGenerationDate;
     }
 
-    public PackageElement getPackageOf(Element classElement) {
+    boolean isAddGenerationDate() {
+        return addGenerationDate;
+    }
+
+    String supportedOptionsSummary() {
+        return GeneralUtils.format("debug: {}, suffix: {}, addGenerationDate: {}", debug, suffix, addGenerationDate);
+    }
+
+    PackageElement getPackageOf(Element classElement) {
         return pe.getElementUtils().getPackageOf(classElement);
     }
 
-    public void printMessage(Diagnostic.Kind kind, CharSequence msg) {
+    void printMessage(Diagnostic.Kind kind, CharSequence msg) {
         pe.getMessager().printMessage(kind, msg);
+    }
+
+    Filer getFiler() {
+        return pe.getFiler();
     }
 
 }

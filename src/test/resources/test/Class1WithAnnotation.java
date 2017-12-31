@@ -1,4 +1,4 @@
-package com.github.mhagnumdw.beaninfogenerator.test;
+package test;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,14 +6,14 @@ import java.util.Date;
 import com.github.mhagnumdw.beaninfogenerator.GenerateBeanMetaInfo;
 
 @GenerateBeanMetaInfo
-public class Classe1 implements Serializable {
+public class Class1WithAnnotation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private int contador;
     private Date idade;
     private String nome;
-    private Classe2 classeDois;
+    private Class2WithoutAnnotation classeDois;
 
     public void aaa() {
 

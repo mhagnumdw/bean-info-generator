@@ -1,11 +1,11 @@
-package com.github.mhagnumdw.beaninfogenerator.test;
+package test;
 
 import java.util.Date;
 
 import com.github.mhagnumdw.beaninfogenerator.GenerateBeanMetaInfo;
 
 @GenerateBeanMetaInfo
-public class Classe3 {
+public class Class3WithAnnotation {
 
     private String cidade;
     private Date dataFundacao;
