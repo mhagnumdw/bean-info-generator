@@ -6,17 +6,17 @@ import javax.annotation.Generated;
 //@formatter:off
 @Generated(
     value = "com.github.mhagnumdw.beaninfogenerator.BeanMetaInfoProcessor",
-    comments = "Class metadata information: test.Class1WithAnnotation"
+    comments = "Class metadata information of: test.Class1WithAnnotation"
 )
 //@formatter:on
 public abstract class Class1WithAnnotation_INFO {
     public static final BeanMetaInfo serialVersionUID = new BeanMetaInfo("serialVersionUID");
 
-    public static final BeanMetaInfo contador = new BeanMetaInfo("contador");
+    public static final BeanMetaInfo age = new BeanMetaInfo("age");
 
-    public static final BeanMetaInfo idade = new BeanMetaInfo("idade");
+    public static final BeanMetaInfo birthday = new BeanMetaInfo("birthday");
 
-    public static final BeanMetaInfo nome = new BeanMetaInfo("nome");
+    public static final BeanMetaInfo name = new BeanMetaInfo("name");
 
-    public static final BeanMetaInfo classeDois = new BeanMetaInfo("classeDois");
+    public static final BeanMetaInfo classTwo = new BeanMetaInfo("classTwo");
 }

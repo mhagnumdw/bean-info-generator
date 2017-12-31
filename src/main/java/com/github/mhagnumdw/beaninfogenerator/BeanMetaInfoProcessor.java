@@ -200,7 +200,7 @@ public class BeanMetaInfoProcessor extends AbstractProcessor {
         final com.squareup.javapoet.AnnotationSpec.Builder generatedAnnotationSpecBuilder = AnnotationSpec
                 .builder(Generated.class)
                 .addMember("value", "$S", BeanMetaInfoProcessor.class.getName())
-                .addMember("comments", "\"Class metadata information: $L\"", fcqnOriginalSource);
+                .addMember("comments", "\"Class metadata information of: $L\"", fcqnOriginalSource);
         // @formatter:on
 
         if (context.isAddGenerationDate()) {

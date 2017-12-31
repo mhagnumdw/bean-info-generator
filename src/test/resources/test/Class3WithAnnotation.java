@@ -7,7 +7,7 @@ import com.github.mhagnumdw.beaninfogenerator.GenerateBeanMetaInfo;
 @GenerateBeanMetaInfo
 public class Class3WithAnnotation {
 
-    private String cidade;
-    private Date dataFundacao;
+    private String city;
+    private Date foundationDate;
 
 }

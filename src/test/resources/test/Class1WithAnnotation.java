@@ -10,10 +10,10 @@ public class Class1WithAnnotation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private int contador;
-    private Date idade;
-    private String nome;
-    private Class2WithoutAnnotation classeDois;
+    private int age;
+    private Date birthday;
+    private String name;
+    private Class2WithoutAnnotation classTwo;
 
     public void aaa() {
 
