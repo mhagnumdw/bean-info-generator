@@ -60,6 +60,7 @@ Someday, when the attribute `age` is renamed it will break in the compilation or
 
 ## // TODO: Configurar no build do Eclipse
 - // TODO: escrever
+- // TODO: lembrar que depende da lib: com.squareup:javapoet:1.9.0
 
 ## // TODO: Mostrar como no maven alterar alguns parâmetros
 - // Esse processaodr de anotação suporta algumas opções, mostrar quais

@@ -22,6 +22,11 @@
         <tag>HEAD</tag>
     </scm>
 
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/mhagnumdw/bean-info-generator/issues</url>
+    </issueManagement>
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
