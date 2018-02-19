@@ -6,7 +6,7 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.PackageElement;
 import javax.tools.Diagnostic;
 
-final class Context {
+public final class Context {
 
     private ProcessingEnvironment pe;
 
@@ -14,13 +14,15 @@ final class Context {
     static final String DEBUG = "debug";
     static final String SUFFIX = "suffix";
     static final String ADD_GENERATION_DATE = "addGenerationDate";
+    static final String ONLY_NAME = "onlyName";
 
     private boolean debug = false;
     private String suffix = "_INFO";
     private boolean addGenerationDate = false;
+    private boolean onlyName = false;
 
     /**
-     * Constructor. Loads some options like debug, suffix, add generated date etc.
+     * Constructor. Loads some options like debug, suffix, add generated date, only name etc.
      *
      * @param pe
      *            instance of {@link ProcessingEnvironment}
@@ -42,9 +44,14 @@ final class Context {
         if (GeneralUtils.isNotBlank(tmp)) {
             setAddGenerationDate(Boolean.parseBoolean(tmp));
         }
+
+        tmp = pe.getOptions().get(ONLY_NAME);
+        if (GeneralUtils.isNotBlank(tmp)) {
+            setOnlyName(Boolean.parseBoolean(tmp));
+        }
     }
 
-    void enableDebug(boolean debug) {
+    private void enableDebug(boolean debug) {
         this.debug = debug;
     }
 
@@ -52,11 +59,11 @@ final class Context {
         return debug;
     }
 
-    void setSuffix(String suffix) {
+    private void setSuffix(String suffix) {
         this.suffix = suffix;
     }
 
-    String getSuffix() {
+    public String getSuffix() {
         return suffix;
     }
 
@@ -64,15 +71,23 @@ final class Context {
         this.addGenerationDate = addGenerationDate;
     }
 
-    boolean isAddGenerationDate() {
+    public boolean isAddGenerationDate() {
         return addGenerationDate;
     }
 
-    String supportedOptionsSummary() {
-        return GeneralUtils.format("debug: {}, suffix: {}, addGenerationDate: {}", debug, suffix, addGenerationDate);
+    private void setOnlyName(boolean onlyName) {
+        this.onlyName = onlyName;
     }
 
-    PackageElement getPackageOf(Element classElement) {
+    public boolean isOnlyName() {
+        return onlyName;
+    }
+
+    String supportedOptionsSummary() {
+        return GeneralUtils.format("debug: {}, suffix: {}, addGenerationDate: {}, onlyName: {}", debug, suffix, addGenerationDate, onlyName);
+    }
+
+    public PackageElement getPackageOf(Element classElement) {
         return pe.getElementUtils().getPackageOf(classElement);
     }
 

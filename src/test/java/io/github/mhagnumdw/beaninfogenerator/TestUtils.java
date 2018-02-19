@@ -3,6 +3,7 @@ package io.github.mhagnumdw.beaninfogenerator;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 import javax.tools.JavaFileObject;
@@ -18,10 +19,10 @@ public final class TestUtils {
 
     /**
      * Compiles java source files.
-     * 
+     *
      * @param files
      *            java source files
-     * 
+     *
      * @return the results of the compilation
      */
     public static Compilation compile(JavaFileObject... files) {
@@ -30,12 +31,12 @@ public final class TestUtils {
 
     /**
      * Compiles java source files.
-     * 
+     *
      * @param compileOptions
      *            command-line options to the compiler, eg: {@literal "-Asuffix=_GENERATED", "-AaddGenerationDate=true"}
      * @param files
      *            java source files
-     * 
+     *
      * @return the results of the compilation
      */
     public static Compilation compile(Object[] compileOptions, JavaFileObject... files) {
@@ -43,15 +44,15 @@ public final class TestUtils {
             final BeanMetaInfoProcessor processor = new BeanMetaInfoProcessor();
             return Compiler.javac().withOptions(compileOptions).withProcessors(processor).compile(files);
         } catch (Exception e) {
-            final String optionsMsg = compileOptions.length == 0 ? "default" : compileOptions.toString();
-            final String errorMsg = GeneralUtils.format("Failed to compile '{}' with '{}' processor options", files, optionsMsg);
+            final String optionsMsg = compileOptions.length == 0 ? "default" : Arrays.toString(compileOptions);
+            final String errorMsg = GeneralUtils.format("Failed to compile '{}' with '{}' processor options", Arrays.toString(files), optionsMsg);
             throw new RuntimeException(errorMsg, e);
         }
     }
 
     /**
      * Prints the generated java source files in the default java log.
-     * 
+     *
      * @param compilation
      *            instance of {@link Compilation}
      */

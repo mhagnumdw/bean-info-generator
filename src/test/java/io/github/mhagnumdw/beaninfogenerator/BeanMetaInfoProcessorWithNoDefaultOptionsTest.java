@@ -29,4 +29,13 @@ public class BeanMetaInfoProcessorWithNoDefaultOptionsTest extends BeanMetaInfoP
         assertThat(compilation).generatedSourceFile(classData.generated).contentsAsUtf8String().containsMatch(REGEX_DETECT_GENERATED_DATE);
     }
 
+    @Test
+    public void testCompilationSuccess_WithNoDefaultSuffixAndOnlyName() {
+        final ResourceData classData = new ResourceData("test/Class1WithAnnotationOnlyName.java", SUFFIX, true);
+        final Object[] compileOptions = { "-Asuffix=" + SUFFIX, "-AonlyName=true" };
+        final Compilation compilation = TestUtils.compile(compileOptions, classData.getOriginalJavaFileObject());
+        assertThat(compilation).succeeded();
+        assertThat(compilation).generatedSourceFile(classData.generated).hasSourceEquivalentTo(classData.getExpectedJavaFileObject());
+    }
+
 }
