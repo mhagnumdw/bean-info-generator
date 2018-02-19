@@ -1,6 +1,7 @@
 package io.github.mhagnumdw.beaninfogenerator.builder;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,6 +11,8 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.DeclaredType;
+import javax.lang.model.type.TypeKind;
 
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.FieldSpec;
@@ -59,14 +62,22 @@ abstract class ClassBuilderAbstract implements ClassBuilder {
 
     protected abstract FieldSpec buildFieldSpec(final String fieldName);
 
-    protected List<? extends Element> getFields(Element classElement) {
+    protected List<Element> getFields(Element classElement) {
+        final TypeElement superClassTypeElement = (TypeElement) classElement;
+        if (TypeKind.NONE.equals(superClassTypeElement.getSuperclass().getKind())) { // superclass is object
+            return Collections.emptyList();
+        }
         // @formatter:off
-        return classElement
+        List<Element> fields = classElement
                 .getEnclosedElements()
                 .stream()
                 .filter(e -> ElementKind.FIELD.equals(e.getKind()))
                 .collect(Collectors.toList());
         // @formatter:on
+        final DeclaredType superClassDeclaredType = (DeclaredType) superClassTypeElement.getSuperclass();
+        final Element superClassElement = superClassDeclaredType.asElement();
+        fields.addAll(getFields(superClassElement));
+        return fields;
     }
 
     private Date getDateNow() {

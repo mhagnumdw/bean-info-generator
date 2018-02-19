@@ -24,6 +24,7 @@ public class BeanMetaInfoProcessorWithDefaultOptionsTest extends BeanMetaInfoPro
     private final ResourceData class2Data = new ResourceData("test/Class2WithoutAnnotation.java", SUFFIX, false);
     private final ResourceData class3Data = new ResourceData("test/Class3WithAnnotation.java", SUFFIX, true);
     private final ResourceData class4Data = new ResourceData("test/Class4WithAnnotationNoAttributes.java", SUFFIX, true);
+    private final ResourceData class5Data = new ResourceData("test/Class5WithAnnotation.java", SUFFIX, true);
 
     private final List<ResourceData> classes = new ArrayList<ResourceData>() {
         {
@@ -31,6 +32,7 @@ public class BeanMetaInfoProcessorWithDefaultOptionsTest extends BeanMetaInfoPro
             add(class2Data);
             add(class3Data);
             add(class4Data);
+            add(class5Data);
         }
     };
 
@@ -44,7 +46,7 @@ public class BeanMetaInfoProcessorWithDefaultOptionsTest extends BeanMetaInfoPro
     @Test
     public void testTotalGeneratedSources() {
         final int totalGeneratedSources = compilation.generatedSourceFiles().size();
-        assertEquals(3, totalGeneratedSources);
+        assertEquals(4, totalGeneratedSources);
     }
 
     @Test
@@ -78,6 +80,11 @@ public class BeanMetaInfoProcessorWithDefaultOptionsTest extends BeanMetaInfoPro
     @Test
     public void testContentOfGeneratedSources_Class4() {
         assertThat(compilation).generatedSourceFile(class4Data.generated).hasSourceEquivalentTo(class4Data.getExpectedJavaFileObject());
+    }
+
+    @Test
+    public void testContentOfGeneratedSources_Class5() {
+        assertThat(compilation).generatedSourceFile(class5Data.generated).hasSourceEquivalentTo(class5Data.getExpectedJavaFileObject());
     }
 
     private Compilation compileAll() {
