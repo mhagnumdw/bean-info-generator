@@ -46,7 +46,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "io.github.mhagnumdw.beaninfogenerator.BeanMetaInfoProcessor",
-    comments = "Class metadata information of: test.People"
+    comments = "Only Name: false, Class metadata information of: test.People"
 )
 public abstract class People_INFO {
     public static final BeanMetaInfo age = new BeanMetaInfo("age");
@@ -72,9 +72,30 @@ Someday, when the attribute `age` is renamed it will break in the compilation or
 ### Supported Options (Parameters)
 - debug (default: `false`): if `true` more information about annotation processing is written in the log;
 - suffix (default: `_INFO`): sets the suffix to name the generated code;
-- addGenerationDate (default: `false`): if `true` is added to the source its generation date.
+- addGenerationDate (default: `false`): if `true` is added to the source its generation date;
+- onlyName (default: `false`): if `true` a simple String is used to represent a field.
 
 The options can be seen in `@SupportedOptions` [here](/src/main/java/io/github/mhagnumdw/beaninfogenerator/BeanMetaInfoProcessor.java#L39).
+
+### Option: onlyName=true
+When `onlyName=true` `People_INFO` is generated as following:
+```java
+package test;
+import java.lang.String;
+import javax.annotation.Generated;
+
+@Generated(
+    value = "io.github.mhagnumdw.beaninfogenerator.BeanMetaInfoProcessor",
+    comments = "Only Name: true, Class metadata information of: test.People"
+)
+public abstract class People_INFO {
+    public static final String age = "age";
+
+    public static final String birthday = "birthday";
+
+    public static final String name = "name";
+}
+```
 
 ### Maven: changing processor parameters
 In Maven pom.xml
