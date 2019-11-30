@@ -46,4 +46,14 @@ public class BeanMetaInfoProcessorWithNoDefaultOptionsTest extends BeanMetaInfoP
         assertThat(compilation).generatedSourceFile(classData.generated).hasSourceEquivalentTo(classData.getExpectedJavaFileObject());
     }
 
+    @Test
+    public void testCompilationSuccess_WithJdk9GeneratedAnnotation() {
+        final String suffix = "_INFO_JDK9";
+        final ResourceData classData = new ResourceData("test/Class1WithAnnotation.java", suffix, true);
+        final Object[] compileOptions = { "-Asuffix=" + suffix, "-AuseJdk9GeneratedAnnotation=true" };
+        final Compilation compilation = TestUtils.compile(compileOptions, classData.getOriginalJavaFileObject());
+        assertThat(compilation).succeeded();
+        assertThat(compilation).generatedSourceFile(classData.generated).hasSourceEquivalentTo(classData.getExpectedJavaFileObject());
+    }
+
 }

@@ -1,12 +1,12 @@
 package io.github.mhagnumdw.beaninfogenerator.builder;
 
+import java.lang.annotation.Annotation;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.annotation.Generated;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.Modifier;
@@ -85,9 +85,12 @@ abstract class ClassBuilderAbstract implements ClassBuilder {
     }
 
     protected AnnotationSpec buildGeneratedAnnotationSpec(final String fcqnOriginalSource, final Context context) {
+        final Class<? extends Annotation> annotation = context.isUseJdk9GeneratedAnnotation() ?
+          javax.annotation.processing.Generated.class : javax.annotation.Generated.class;
+
         // @formatter:off
         final com.squareup.javapoet.AnnotationSpec.Builder generatedAnnotationSpecBuilder = AnnotationSpec
-                .builder(Generated.class)
+                .builder(annotation)
                 .addMember("value", "$S", BeanMetaInfoProcessor.class.getName())
                 .addMember("comments", "\"Only Name: $L, Class metadata information of: $L\"", context.isOnlyName(), fcqnOriginalSource);
         // @formatter:on

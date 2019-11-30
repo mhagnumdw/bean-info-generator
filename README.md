@@ -73,7 +73,8 @@ Someday, when the attribute `age` is renamed it will break in the compilation or
 - debug (default: `false`): if `true` more information about annotation processing is written in the log;
 - suffix (default: `_INFO`): sets the suffix to name the generated code;
 - addGenerationDate (default: `false`): if `true` is added to the source its generation date;
-- onlyName (default: `false`): if `true` a simple String is used to represent a field.
+- onlyName (default: `false`): if `true` a simple String is used to represent a field;
+- useJdk9GeneratedAnnotation (default: `false`): if `true`, `javax.annotation.processing.Generated` will be used instead of `javax.annotation.Generated`.
 
 The options can be seen in `@SupportedOptions` [here](/src/main/java/io/github/mhagnumdw/beaninfogenerator/BeanMetaInfoProcessor.java#L39).
 

@@ -15,11 +15,14 @@ public final class Context {
     static final String SUFFIX = "suffix";
     static final String ADD_GENERATION_DATE = "addGenerationDate";
     static final String ONLY_NAME = "onlyName";
+    static final String USE_JDK9_GENERATED_ANNOTATION = "useJdk9GeneratedAnnotation";
+
 
     private boolean debug = false;
     private String suffix = "_INFO";
     private boolean addGenerationDate = false;
     private boolean onlyName = false;
+    private boolean useJdk9GeneratedAnnotation = false;
 
     /**
      * Constructor. Loads some options like debug, suffix, add generated date, only name etc.
@@ -48,6 +51,11 @@ public final class Context {
         tmp = pe.getOptions().get(ONLY_NAME);
         if (GeneralUtils.isNotBlank(tmp)) {
             setOnlyName(Boolean.parseBoolean(tmp));
+        }
+
+        tmp = pe.getOptions().get(USE_JDK9_GENERATED_ANNOTATION);
+        if (GeneralUtils.isNotBlank(tmp)) {
+            setUseJdk9GeneratedAnnotation(Boolean.parseBoolean(tmp));
         }
     }
 
@@ -81,6 +89,14 @@ public final class Context {
 
     public boolean isOnlyName() {
         return onlyName;
+    }
+
+    public boolean isUseJdk9GeneratedAnnotation() {
+        return useJdk9GeneratedAnnotation;
+    }
+
+    public void setUseJdk9GeneratedAnnotation(boolean useJdk9GeneratedAnnotation) {
+        this.useJdk9GeneratedAnnotation = useJdk9GeneratedAnnotation;
     }
 
     String supportedOptionsSummary() {
