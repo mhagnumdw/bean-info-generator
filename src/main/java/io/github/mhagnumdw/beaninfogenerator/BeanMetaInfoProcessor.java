@@ -35,7 +35,7 @@ import io.github.mhagnumdw.beaninfogenerator.builder.ClassFactory;
     Context.ONLY_NAME
 })
 //@formatter:on
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedSourceVersion(SourceVersion.RELEASE_11)
 public class BeanMetaInfoProcessor extends AbstractProcessor {
 
     private static final boolean ALLOW_OTHER_PROCESSORS_TO_CLAIM_ANNOTATIONS = false;
