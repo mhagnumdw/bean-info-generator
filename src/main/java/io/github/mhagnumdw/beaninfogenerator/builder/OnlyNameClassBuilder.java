@@ -6,7 +6,7 @@ import com.squareup.javapoet.FieldSpec;
 
 import io.github.mhagnumdw.beaninfogenerator.Context;
 
-class OnlyNameClassBuilder extends ClassBuilderAbstract implements ClassBuilder {
+class OnlyNameClassBuilder extends ClassBuilderAbstract {
 
     public OnlyNameClassBuilder(final Context context) {
         super(context);

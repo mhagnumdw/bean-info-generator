@@ -7,7 +7,7 @@ import com.squareup.javapoet.FieldSpec;
 import io.github.mhagnumdw.beaninfogenerator.BeanMetaInfo;
 import io.github.mhagnumdw.beaninfogenerator.Context;
 
-class BeanMetaInfoClassBuilder extends ClassBuilderAbstract implements ClassBuilder {
+class BeanMetaInfoClassBuilder extends ClassBuilderAbstract {
 
     public BeanMetaInfoClassBuilder(final Context context) {
         super(context);
