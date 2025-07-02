@@ -6,20 +6,23 @@
 
 Generate static information about Java Beans
 
-### What is it?
+## What is it?
+
 It is an annotation processor for generating code containing static information about the fields of any Java class.
 
-### What is the advantage/benefit?
+## What is the advantage/benefit?
+
 Create typesafe code to be constructed in a strongly-typed manner when you need to reference fields by literal value.
 
-### Usage
+## Usage
+
 In Maven pom.xml
 
 ```xml
 <dependency>
     <groupId>io.github.mhagnumdw</groupId>
     <artifactId>bean-info-generator</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -39,6 +42,7 @@ public class People {
 ```
 
 When the build run, `People_INFO.java` and `People_INFO.class` are generated:
+
 ```java
 package test;
 import io.github.mhagnumdw.beaninfogenerator.BeanMetaInfo;
@@ -58,18 +62,21 @@ public abstract class People_INFO {
 ```
 
 So, a code that is traditionally written like this:
+
 ```java
 Field field = People.class.getDeclaredField("age");
 ```
 
 **Now it can be written like this:**
+
 ```java
 Field field = People.class.getDeclaredField(People_INFO.age.getName());
 ```
 
 Someday, when the attribute `age` is renamed it will break in the compilation or your IDE will warn of the problem, something that would not happen before.
 
-### Supported Options (Parameters)
+## Supported Options (Parameters)
+
 - debug (default: `false`): if `true` more information about annotation processing is written in the log;
 - suffix (default: `_INFO`): sets the suffix to name the generated code;
 - addGenerationDate (default: `false`): if `true` is added to the source its generation date;
@@ -77,8 +84,10 @@ Someday, when the attribute `age` is renamed it will break in the compilation or
 
 The options can be seen in `@SupportedOptions` [here](/src/main/java/io/github/mhagnumdw/beaninfogenerator/BeanMetaInfoProcessor.java#L39).
 
-### Option: onlyName=true
+## Option: onlyName=true
+
 When `onlyName=true` `People_INFO` is generated as following:
+
 ```java
 package test;
 import java.lang.String;
@@ -97,7 +106,8 @@ public abstract class People_INFO {
 }
 ```
 
-### Maven: changing processor parameters
+## Maven: changing processor parameters
+
 In Maven pom.xml
 
 ```xml
@@ -114,13 +124,19 @@ In Maven pom.xml
 </plugin>
 ```
 
-### Eclipse: configuration
+## Eclipse: configuration
+
 1. Right click on the project > Properties
 1. Java Compiler > Annotation Processing > Factory path
 1. Add two jars:
     1. bean-info-generator-X.Y.Z.jar
     1. [javapoet-X.Y.Z.jar](https://github.com/square/javapoet)
 
-### Limitations
+## Limitations
+
 - It currently generates information only for fields;
 - Internal classes are not created within the generated class.
+
+## For Developers
+
+For details on how to contribute, set up the development environment, run tests, and other development-related information, please see our [CONTRIBUTING.md](CONTRIBUTING.md) file.
