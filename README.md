@@ -1,7 +1,7 @@
 # Java - Bean Info Generator
 
-[![Travis CI Build Status](https://travis-ci.org/mhagnumdw/bean-info-generator.png)](https://travis-ci.org/mhagnumdw/bean-info-generator)
-[![Coverage Status](https://coveralls.io/repos/github/mhagnumdw/bean-info-generator/badge.svg?branch=master)](https://coveralls.io/github/mhagnumdw/bean-info-generator?branch=master)
+[![ci](https://github.com/mhagnumdw/bean-info-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/mhagnumdw/bean-info-generator/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/mhagnumdw/bean-info-generator/graph/badge.svg?token=R39QCMSTHY)](https://codecov.io/gh/mhagnumdw/bean-info-generator)
 [![Maven Central](http://img.shields.io/maven-central/v/io.github.mhagnumdw/bean-info-generator.svg)](http://search.maven.org/#search|ga|1|io.github.mhagnumdw)
 
 Generate static information about Java Beans
