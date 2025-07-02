@@ -2,6 +2,7 @@
 
 [![ci](https://github.com/mhagnumdw/bean-info-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/mhagnumdw/bean-info-generator/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/mhagnumdw/bean-info-generator/graph/badge.svg?token=R39QCMSTHY)](https://codecov.io/gh/mhagnumdw/bean-info-generator)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mhagnumdw_bean-info-generator&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mhagnumdw_bean-info-generator)
 [![Maven Central](http://img.shields.io/maven-central/v/io.github.mhagnumdw/bean-info-generator.svg)](http://search.maven.org/#search|ga|1|io.github.mhagnumdw)
 
 Generate static information about Java Beans
