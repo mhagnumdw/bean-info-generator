@@ -136,3 +136,7 @@ In Maven pom.xml
 
 - It currently generates information only for fields;
 - Internal classes are not created within the generated class.
+
+## For Developers
+
+For details on how to contribute, set up the development environment, run tests, and other development-related information, please see our [CONTRIBUTING.md](CONTRIBUTING.md) file.
