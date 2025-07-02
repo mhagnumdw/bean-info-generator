@@ -22,7 +22,7 @@ In Maven pom.xml
 <dependency>
     <groupId>io.github.mhagnumdw</groupId>
     <artifactId>bean-info-generator</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
